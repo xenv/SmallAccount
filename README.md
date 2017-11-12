@@ -23,7 +23,7 @@ startup.Bootstrap.main
 ![](https://github.com/xenv/SmallAccount/blob/master/resources/github/demo.gif?raw=true)
 
 
-##目录结构
+## 目录结构
 
 ```
 ├─db 
@@ -109,7 +109,7 @@ startup.Bootstrap.main
 ```
 
 
-##数据库结构
+## 数据库结构
 db/data.db已经包含了完整的数据结构和测试数据
 ```sqlite
 CREATE TABLE config (
@@ -137,7 +137,7 @@ CREATE TABLE record (
 
 ```
 
-##启动流程
+## 启动流程
 ```
 startup.Bootstrap.main()            主类
 ↓
@@ -152,3 +152,7 @@ gui.panel.SpendPanel.instance       本月一览界面
 ↓
 gui.panel.*                         通过监控菜单栏实现其他Panel的切换
 ```
+
+## License
+   
+GPL v3.0
