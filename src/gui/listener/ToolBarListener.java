@@ -1,11 +1,16 @@
 package gui.listener;
 
-import entity.Record;
 import gui.panel.*;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+/**
+ * MainPanel 的监听器，监听 Toolbar 的按钮操作并切换面板
+ * workingPanel有方法 .show(WorkingPanel p) 可以居中显示子面板 并 更新数据
+ * @see MainPanel
+ */
 
 public class ToolBarListener implements ActionListener {
     @Override
@@ -32,6 +37,9 @@ public class ToolBarListener implements ActionListener {
         }
         if (b == p.bSpend) {
             p.workingPanel.show(SpendPanel.instance);
+        }
+        if (b == p.bHistory) {
+            p.workingPanel.show(HistoryPanel.instance);
         }
 
     }

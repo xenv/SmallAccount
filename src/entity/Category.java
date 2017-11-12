@@ -1,10 +1,14 @@
 package entity;
 
-public class Category {
-    public int id;
-    public String name;
+/**
+ * 实体类 Category
+ */
 
-    public int recordNumber;
+public class Category {
+    private int id;
+    private String name;
+
+    private int recordNumber;
 
     public Category() {
     }

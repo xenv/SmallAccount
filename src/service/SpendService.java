@@ -7,10 +7,16 @@ import util.DateUtil;
 
 import java.util.List;
 
+/**
+ * 业务类 SpendService 对 多个 数据库的业务进行封装 供 SpendPanel 使用
+ *
+ * @see gui.panel.SpendPanel
+ */
+
 public class SpendService {
     public SpendPage getSpendPage() {
         RecordDAO dao = new RecordDAO();
-        //MonthData
+
         List<Record> thisMonthRecords = dao.listThisMonth();
         List<Record> todayRecords = dao.listToday();
         int thisMonthTotalday = DateUtil.thisMonthTotalDay();
@@ -25,20 +31,20 @@ public class SpendService {
 
         int monthBudget = new ConfigService().getIntBudget();
 
-        for(Record record : thisMonthRecords){
+        for (Record record : thisMonthRecords) {
             monthSpend += record.getSpend();
         }
 
-        for(Record record:todayRecords){
+        for (Record record : todayRecords) {
             todaySpend += record.getSpend();
         }
         avgSpendPerDay = monthSpend / thisMonthTotalday;
         monthAvailable = monthBudget - monthSpend;
         monthLeftDay = DateUtil.thisMonthLeftDay();
-        dayAvgAvailable = monthAvailable/monthLeftDay;
-        usagePercentage = monthSpend*100 / monthBudget;
+        dayAvgAvailable = monthAvailable / monthLeftDay;
+        usagePercentage = monthSpend * 100 / monthBudget;
 
-        return new SpendPage(monthSpend,todaySpend,avgSpendPerDay,monthAvailable,dayAvgAvailable,monthLeftDay,usagePercentage);
+        return new SpendPage(monthSpend, todaySpend, avgSpendPerDay, monthAvailable, dayAvgAvailable, monthLeftDay, usagePercentage);
     }
 
 

@@ -13,7 +13,11 @@ import gui.model.CategoryTableModel;
 import service.CategoryService;
 import util.ColorUtil;
 import util.GUIUtil;
- 
+
+/**
+ * 界面类 CategoryPanel 分类页
+ */
+
 public class CategoryPanel extends WorkingPanel{
     static{
         GUIUtil.useLNF();
@@ -23,10 +27,9 @@ public class CategoryPanel extends WorkingPanel{
     public JButton bAdd = new JButton("新增");
     public JButton bEdit = new JButton("编辑");
     public JButton bDelete = new JButton("删除");
-    //String columNames[] = new String[]{"分类名称","消费次数"};
-     
-    public CategoryTableModel ctm = new CategoryTableModel();
-    public JTable t =new JTable(ctm);
+
+    private CategoryTableModel ctm = new CategoryTableModel();
+    private JTable t =new JTable(ctm);
      
     public CategoryPanel() {
         GUIUtil.setColor(ColorUtil.blueColor, bAdd,bEdit,bDelete);
@@ -46,6 +49,9 @@ public class CategoryPanel extends WorkingPanel{
     public static void main(String[] args) {
         GUIUtil.showPanel(CategoryPanel.instance);
     }
+    public boolean checkSelected(){
+        return t.getSelectedRow()>=0;
+    }
     public Category getSelectedCategory(){
         int index = t.getSelectedRow();
         return ctm.cs.get(index>0?index:0);
@@ -53,7 +59,6 @@ public class CategoryPanel extends WorkingPanel{
     public void updateData(){
         ctm.cs = new CategoryService().list();
         t.updateUI();
-        t.getSelectionModel().setSelectionInterval(0,0);
         if(0==ctm.cs.size()){
             bEdit.setEnabled(false);
             bDelete.setEnabled(false);

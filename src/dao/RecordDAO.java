@@ -8,6 +8,10 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * DAO类-Record，对 record 表进行增改删查操作，还做了一些冗余的方法，不再过多注释
+ */
+
 public class RecordDAO {
     public void add(Record record) {
         String sql = "insert into record (`spend`,`cid`,`comment`,`date`) values (?,?,?,?)";

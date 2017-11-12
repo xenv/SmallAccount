@@ -5,9 +5,12 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
- * <code>SQLUtil</code>是负责导出和恢复数据库文件的工具类
+ * 工具类 SQLUtil 数据库导入，导出和清空
  *
  * @author xenv
  */
@@ -58,6 +61,21 @@ public class SQLUtil {
             os.write(bytes);
             //清理
             os.flush();
+        }
+    }
+
+    /**
+     * 清空数据库，重置自增值
+     */
+    public static void truncate(){
+        try(Connection c = DBUtil.getConnection();
+            Statement s = c.createStatement()){
+            s.execute("delete from config;");
+            s.execute("delete from record;");
+            s.execute("delete from category;");
+            s.execute("delete from sqlite_sequence;");
+        }catch (SQLException e){
+            e.printStackTrace();
         }
     }
 }

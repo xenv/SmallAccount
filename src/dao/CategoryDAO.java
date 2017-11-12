@@ -7,6 +7,10 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * DAO类-Category，对category表进行增改删查操作，还做了一些冗余的方法，不再过多注释
+ */
+
 public class CategoryDAO {
     public void add(Category category) {
         String sql = "insert into category (`name`) values (?)";

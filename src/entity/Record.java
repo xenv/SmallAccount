@@ -2,12 +2,16 @@ package entity;
 
 import java.util.Date;
 
+/**
+ * 实体类 Record
+ */
+
 public class Record {
-    public int spend;
-    public int id;
-    public int cid;
-    public String comment;
-    public Date date;
+    private int spend;
+    private int id;
+    private int cid;
+    private String comment;
+    private Date date;
 
     public Record() {
     }

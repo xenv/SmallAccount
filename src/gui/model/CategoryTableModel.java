@@ -8,21 +8,26 @@ import java.util.List;
  
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
- 
+
+/**
+ * CategoryPanel 的 Table 的数据模型，实现了 TableModel 接口
+ *
+ * @see gui.panel.CategoryPanel
+ */
+
 public class CategoryTableModel implements TableModel{
- 
-    String[] columnNames = new String[]{"分类名称","消费次数"};
+    //列
+    private String[] columnNames = new String[]{"分类名称","消费次数"};
+    //行数据
     public List<Category> cs = new CategoryService().list();
 
     @Override
     public int getRowCount() {
-        // TODO Auto-generated method stub
         return cs.size();
     }
  
     @Override
     public int getColumnCount() {
-        // TODO Auto-generated method stub
         return columnNames.length;
     }
  

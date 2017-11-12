@@ -1,5 +1,0 @@
-Manifest-Version: 1.0
-Class-Path: chart.jar swingx-core-1.6.2.jar sqlite-jdbc-3.20.0.jar pgs
- lookandfeel-1.1.2.jar
-Main-Class: startup.Bootstrap
-

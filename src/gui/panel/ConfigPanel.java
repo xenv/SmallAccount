@@ -12,7 +12,11 @@ import gui.listener.ConfigListener;
 import service.ConfigService;
 import util.ColorUtil;
 import util.GUIUtil;
- 
+
+/**
+ * 界面类 ConfigPanel 设置页
+ */
+
 public class ConfigPanel extends WorkingPanel {
     static{
         GUIUtil.useLNF();
@@ -20,32 +24,36 @@ public class ConfigPanel extends WorkingPanel {
     public static ConfigPanel instance = new ConfigPanel();
 
  
-    JLabel lBudget = new JLabel("本月预算(￥)");
+    private JLabel lBudget = new JLabel("本月预算(￥)");
     public JTextField tfBudget = new JTextField();
-
-    JButton bSubmit = new JButton("更新");
+    public JButton bTruncate = new JButton("重置数据库");
+    public JButton bSubmit = new JButton("更新");
  
     public ConfigPanel() {
         GUIUtil.setColor(ColorUtil.grayColor, lBudget);
         GUIUtil.setColor(ColorUtil.blueColor, bSubmit);
          
-        JPanel pInput =new JPanel();
-        JPanel pSubmit = new JPanel();
+        JPanel pNorth =new JPanel();
+        JPanel pSouth = new JPanel();
         int gap =40;
-        pInput.setLayout(new GridLayout(4,1,gap,gap));
-         
-        pInput.add(lBudget);
-        pInput.add(tfBudget);
+        pNorth.setLayout(new GridLayout(3,1,gap,gap));
+
+        pNorth.add(lBudget);
+        pNorth.add(tfBudget);
+        pNorth.add(bSubmit);
         this.setLayout(new BorderLayout());
-        this.add(pInput,BorderLayout.NORTH);
+        this.add(pNorth,BorderLayout.NORTH);
+
          
-        pSubmit.add(bSubmit);
-        this.add(pSubmit,BorderLayout.CENTER);
+        pSouth.add(bTruncate);
+        this.add(pSouth,BorderLayout.SOUTH);
 
         addListener();
     }
     public void addListener(){
-        bSubmit.addActionListener(new ConfigListener());
+        ConfigListener l =new ConfigListener();
+        bSubmit.addActionListener(l);
+        bTruncate.addActionListener(l);
     }
     public void updateData(){
         ConfigService service = new ConfigService();

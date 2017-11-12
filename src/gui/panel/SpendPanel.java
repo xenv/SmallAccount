@@ -9,27 +9,32 @@ import util.GUIUtil;
 import javax.swing.*;
 import java.awt.*;
 
-public class SpendPanel extends WorkingPanel{
-    static{
+/**
+ * 界面类 SpendPanel 本月一览页
+ */
+
+public class SpendPanel extends WorkingPanel {
+    static {
         GUIUtil.useLNF();
     }
+
     public static SpendPanel instance = new SpendPanel();
 
-    public JLabel lMonthSpend = new JLabel("本月消费");
-    public JLabel lTodaySpend = new JLabel("今日消费");
-    public JLabel lAvgSpendPerDay = new JLabel("日均消费");
-    public JLabel lMonthLeft = new JLabel("本月剩余");
-    public JLabel lDayAvgAvailable = new JLabel("日均可用");
-    public JLabel lMonthLeftDay = new JLabel("距离月末");
+    private JLabel lMonthSpend = new JLabel("本月消费");
+    private JLabel lTodaySpend = new JLabel("今日消费");
+    private JLabel lAvgSpendPerDay = new JLabel("日均消费");
+    private JLabel lMonthLeft = new JLabel("本月剩余");
+    private JLabel lDayAvgAvailable = new JLabel("日均可用");
+    private JLabel lMonthLeftDay = new JLabel("距离月末");
 
-    public JLabel vMonthSpend = new JLabel("￥2300");
-    public JLabel vTodaySpend = new JLabel("￥25");
-    public JLabel vAvgSpendPerDay = new JLabel("￥120");
-    public JLabel vMonthAvailable = new JLabel("￥2084");
-    public JLabel vDayAvgAvailable = new JLabel("￥389");
-    public JLabel vMonthLeftDay = new JLabel("15天");
+    private JLabel vMonthSpend = new JLabel("￥2300");
+    private JLabel vTodaySpend = new JLabel("￥25");
+    private JLabel vAvgSpendPerDay = new JLabel("￥120");
+    private JLabel vMonthAvailable = new JLabel("￥2084");
+    private JLabel vDayAvgAvailable = new JLabel("￥389");
+    private JLabel vMonthLeftDay = new JLabel("15天");
 
-    CircleProgressBar bar;
+    private CircleProgressBar bar;
 
     private SpendPanel() {
         this.setLayout(new BorderLayout());
@@ -66,7 +71,7 @@ public class SpendPanel extends WorkingPanel{
         JPanel p = new JPanel();
         p.setLayout(new BorderLayout());
         p.add(west(), BorderLayout.WEST);
-        p.add(east(),BorderLayout.CENTER);
+        p.add(east(), BorderLayout.CENTER);
         return p;
     }
 
@@ -100,11 +105,11 @@ public class SpendPanel extends WorkingPanel{
         vMonthAvailable.setText(spend.monthAvailable);
         vMonthLeftDay.setText(spend.monthLeftDay);
         bar.setProgress(spend.usagePercentage);
-        if(spend.isOverSpend){
+        if (spend.isOverSpend) {
             vMonthAvailable.setForeground(ColorUtil.warningColor);
             vMonthSpend.setForeground(ColorUtil.warningColor);
             vTodaySpend.setForeground(ColorUtil.warningColor);
-        }else{
+        } else {
             vMonthAvailable.setForeground(ColorUtil.grayColor);
             vMonthSpend.setForeground(ColorUtil.blueColor);
             vTodaySpend.setForeground(ColorUtil.blueColor);

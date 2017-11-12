@@ -1,9 +1,13 @@
 package entity;
 
+/**
+ * 实体类 Config
+ */
+
 public class Config {
-    public int id;
-    public String key;
-    public String value;
+    private int id;
+    private String key;
+    private String value;
 
     public Config() {
     }

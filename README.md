@@ -1,25 +1,26 @@
 # SmallAccount
-小小记账本，拥有基础记账功能，是一个JAVA (J2SE) 练手的小项目。
+小小记账本，拥有基础记账功能，是一个JAVA (J2SE) 练手+自用的小项目。
 
 * 实现了基础记账功能
     - [x] 记账分类的增改删查
     - [x] 记账记录的增改删查
-    - [x] 月度一览和月度每日统计
-    - [x] 配置信息的修改与保存
-    - [x] 数据导出与导入
+    - [x] 月度一览和月度每日统计（柱状图）
+    - [x] 配置信息的修改与保存 （每月预算）
+    - [x] 数据导出、导入和重置
 
-* 使用Swing和SQLite数据库
+* 使用Swing和SQLite数据库，无需额外配置数据库
 * Entity层、DAO层、Service层和GUI层分离，GUI层界面、数据、监听器分离
-
+* 面板使用单例模式，数据库采用外键约束
+* 带有详细的注释
 
 ## 启动
-主类为
+入口为
 ```
-startup.Bootstrap.main()
+startup.Bootstrap.main
 ```
 
 ## 演示
-
+![](https://github.com/xenv/SmallAccount/blob/master/resources/github/demo.gif?raw=true)
 
 
 ##目录结构

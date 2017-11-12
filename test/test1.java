@@ -5,7 +5,7 @@ import util.GUIUtil;
 import javax.swing.*;
 import java.awt.*;
 
-
+//测试图表
 public class test1 {
     private static double[] sampleValues() {
 

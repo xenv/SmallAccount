@@ -6,6 +6,10 @@ import java.util.*;
 import entity.Config;
 import util.DBUtil;
 
+/**
+ * DAO类-Config，对config表进行增改删查操作，还做了一些冗余的方法，不再过多注释
+ */
+
 public class ConfigDAO {
     public void add(Config config) {
         String sql = "insert into config (`key_`,`value`) values (?,?)";

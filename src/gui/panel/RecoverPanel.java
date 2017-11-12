@@ -6,14 +6,18 @@ import javax.swing.JPanel;
 import gui.listener.RecoverListener;
 import util.ColorUtil;
 import util.GUIUtil;
- 
+
+/**
+ * 界面类 RecoverPanel 恢复页
+ */
+
 public class RecoverPanel extends WorkingPanel {
     static{
         GUIUtil.useLNF();
     }
     public static RecoverPanel instance = new RecoverPanel();
  
-    JButton bRecover =new JButton("恢复");
+    private JButton bRecover =new JButton("恢复");
  
     public RecoverPanel() {
         GUIUtil.setColor(ColorUtil.blueColor, bRecover);
@@ -26,7 +30,6 @@ public class RecoverPanel extends WorkingPanel {
     }
     @Override
     public void updateData() {
-        // TODO Auto-generated method stub
 
     }
 
