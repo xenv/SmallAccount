@@ -20,6 +20,8 @@ startup.Bootstrap.main()
 
 ## 演示
 
+
+
 ##目录结构
 
 ```
@@ -104,6 +106,7 @@ startup.Bootstrap.main()
 │          GUIUtil.java
 │          SQLUtil.java
 ```
+
 
 ##数据库结构
 db/data.db已经包含了完整的数据结构和测试数据
