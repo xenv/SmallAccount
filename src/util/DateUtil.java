@@ -82,7 +82,7 @@ public class DateUtil {
         int TotalDay = thisMonthTotalDay();
         today();
         int today = c.get(Calendar.DATE);
-        return TotalDay - today;
+        return TotalDay - today + 1;
     }
 
     /**
